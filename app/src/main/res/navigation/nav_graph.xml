@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcome">
+
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.alekseykostyunin.hw17_nasa.presentation.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcome_to_photo"
+            app:destination="@id/photos"
+            app:enterAnim="@anim/enter_animation_left"
+            app:exitAnim="@anim/exit_animation_left"
+            app:popEnterAnim="@anim/enter_animation_right"
+            app:popExitAnim="@anim/exit_animation_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photos"
+        android:name="com.alekseykostyunin.hw17_nasa.presentation.PhotosListFragment"
+        tools:layout="@layout/fragment_photos_list">
+
+        <action
+            android:id="@+id/action_list_photo_to_full_photo"
+            app:destination="@id/full_photo"
+            app:enterAnim="@anim/enter_animation_left"
+            app:exitAnim="@anim/exit_animation_left"
+            app:popEnterAnim="@anim/enter_animation_right"
+            app:popExitAnim="@anim/exit_animation_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/full_photo"
+        android:name="com.alekseykostyunin.hw17_nasa.presentation.FullPhotoFragment"
+        tools:layout="@layout/fragment_full_photo">
+
+        <action
+            android:id="@+id/action_full_photo_to_list_photo"
+            app:destination="@+id/photos"
+            app:enterAnim="@anim/enter_animation_right"
+            app:exitAnim="@anim/exit_animation_right"
+            app:popEnterAnim="@anim/enter_animation_right"
+            app:popExitAnim="@anim/exit_animation_right"
+            />
+        <argument
+            android:name="TAG_URL_PHOTO"
+            app:argType="string"
+            />
+    </fragment>
+
+</navigation>
